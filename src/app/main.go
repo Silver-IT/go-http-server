@@ -4,15 +4,15 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 
-	"packages/utils"
+	utils "common/pkg"
 )
 
 func main() {
+	fmt.Println(utils.Greeting)
 	r := mux.NewRouter()
 
 	r.HandleFunc("/hello-world", helloWorld)
@@ -25,7 +25,7 @@ func main() {
 
 	srv := &http.Server{
 		Handler: handler,
-		Addr:    ":" + os.Getenv("PORT"),
+		Addr:    ":3030", // + os.Getenv("PORT"),
 	}
 
 	log.Fatal(srv.ListenAndServe())

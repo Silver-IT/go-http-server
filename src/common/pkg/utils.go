@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 )
 
-func StructToJSON(data interface{}) ([]byte, error) {
+func StructToJson(data interface{}) ([]byte, error) {
 	buf := new(bytes.Buffer)
 
 	if err := json.NewEncoder(buf).Encode(data); err != nil {
@@ -14,3 +14,8 @@ func StructToJSON(data interface{}) ([]byte, error) {
 
 	return buf.Bytes(), nil
 }
+
+var (
+	Greeting      = "Hello, Shadow. It's time to learn GoLang!"
+	innerGreeting = "Hidden Message."
+)
